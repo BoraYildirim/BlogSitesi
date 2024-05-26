@@ -1,0 +1,68 @@
+﻿@model BlogSitesi.Models.Konu
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2 class="my-4 text-center">Create New Topic</h2>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="card-title mb-0">Yeni Konu Ekle</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                        <div class="mb-3">
+                            <label asp-for="KonuBaslik" class="form-label fw-bold">Konu Başlık</label>
+                            <input asp-for="KonuBaslik" class="form-control" placeholder="Başlık girin..." />
+                            <span asp-validation-for="KonuBaslik" class="text-danger"></span>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-primary btn-lg me-md-2">Create</button>
+                            <a asp-action="Index" class="btn btn-secondary btn-lg">Back to List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+
+    .card-header {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+</style>

@@ -1,0 +1,88 @@
+﻿@model List<BlogSitesi.Models.Makale>
+
+@{
+    ViewData["Title"] = "İlgili Makaleler";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        @foreach (var makale in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow grow">
+                    <div class="card-body">
+                        <h5 class="card-title">@makale.Baslık</h5>
+                        <p class="card-text">@makale.Metin.Truncate(10)</p>
+                        <ul class="list-unstyled">
+                            <li><strong>Tarih:</strong> @makale.Tarih.ToShortDateString()</li>
+                            <li><strong>Ortalama Süre:</strong> @makale.OrtalamaSure</li>
+                            <li><strong>Okunma Sayısı:</strong> @makale.OkunmaSayisi</li>
+                            <li><strong>Konu:</strong> @makale.MakaleKonus.FirstOrDefault()?.Konu.KonuBaslik</li>
+                        </ul>
+                        <a href="@Url.Action("Details", "Makale", new { id = makale.MakaleID })" class="btn btn-primary">Detaylar</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@if (Model.Count == 0)
+{
+    <p class="text-center">Henüz ilgili makale bulunmamaktadır.</p>
+}
+
+@section Scripts {
+    <style>
+        .card {
+            transition: transform 0.3s;
+        }
+
+        .grow {
+            position: relative;
+        }
+
+            .grow::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transition: background-color 0.3s ease; 
+                z-index: -1; 
+                border-radius: 0.25rem; 
+            }
+
+            .grow:hover::before {
+                background-color: thistle;
+            }
+
+            .grow:hover {
+                z-index: 1; 
+                transform: scale(1.35); 
+            }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .list-unstyled li {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .btn {
+            font-size: 0.9rem;
+        }
+    </style>
+}

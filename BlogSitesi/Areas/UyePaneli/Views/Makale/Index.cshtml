@@ -1,0 +1,90 @@
+﻿@using BlogSitesi.Models.ViewModels
+@model MakaleVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+            padding: 12px;
+        }
+
+        .header-links a {
+            margin-right: 10px;
+        }
+
+            .header-links a.btn {
+                padding: 8px 12px;
+            }
+
+        .table-hover tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn-primary, .btn-secondary {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-primary:hover, .btn-secondary:hover {
+                transform: scale(1.05);
+            }
+
+        .table th, .table td {
+            text-align: center;
+        }
+
+        
+        .table {
+            max-width: 800px; 
+            margin: 0 auto; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center"><i class="fas fa-newspaper mr-2"></i>Makale Listesi</h2>
+
+        <div class="header-links mb-3 text-center">
+            <a class="btn btn-primary" asp-action="Create"><i class="fas fa-plus-circle mr-2"></i>Yeni Makale Oluştur</a>
+            <a class="btn btn-secondary" asp-area="UyePaneli" asp-controller="Konus" asp-action="Create"><i class="fas fa-folder-plus mr-2"></i>Konu Oluştur</a>
+        </div>
+
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Makale.Baslık)</th>
+                    <th></th> 
+            </thead>
+            <tbody>
+                @foreach (var item in Model.mlist)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Baslık)</td>
+                        <td>
+                            <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.MakaleID"><i class="fas fa-info-circle mr-1"></i>Detaylar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

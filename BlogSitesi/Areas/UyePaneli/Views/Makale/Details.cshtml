@@ -1,0 +1,80 @@
+﻿@model BlogSitesi.Models.Makale
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .article-meta {
+            font-size: 1rem;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .article-content {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .btn-back, .btn-edit {
+            margin-top: 30px;
+        }
+
+            .btn-back i, .btn-edit i {
+                margin-right: 5px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="article-header">
+            <h2 class="article-title">@Model.Baslık</h2>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar-alt"></i> @Model.Tarih.ToShortDateString()</span> |                
+                <span><i class="fas fa-clock"></i> @Model.OrtalamaSure dakika okuma süresi</span> |
+                <span><i class="fas fa-eye"></i> @Model.OkunmaSayisi okunma</span>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <p>@Model.Metin</p>
+        </div>
+
+        <div class="text-center">
+            <a class="btn btn-secondary btn-back" asp-action="Index"><i class="fas fa-arrow-left"></i> Geri</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

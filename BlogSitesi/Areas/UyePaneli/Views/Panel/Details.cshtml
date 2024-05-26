@@ -1,0 +1,163 @@
+﻿@model BlogSitesi.Models.Uye
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .card {
+            border-color: #fd7e14;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+            .card:hover {
+                transform: scale(1.02);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+        .card-header {
+            background-color: #fd7e14;
+            color: white;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .card-footer {
+            background-color: #fd7e14;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .btn-primary {
+            background-color: #fd7e14;
+            border-color: #fd7e14;
+        }
+
+            .btn-primary:hover {
+                background-color: #e76700;
+                border-color: #e76700;
+            }
+
+        .btn-secondary {
+            background-color: #ffb07c;
+            border-color: #ffb07c;
+        }
+
+            .btn-secondary:hover {
+                background-color: #ff9300;
+                border-color: #ff9300;
+            }
+
+        .img-fluid {
+            max-width: 120px;
+            height: auto;
+            border-radius: 50%;
+            border: 2px solid #fd7e14;
+        }
+
+        .details-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+            .details-header h2 {
+                margin: 0;
+            }
+
+            .details-header img {
+                max-width: 50px;
+                margin-right: 10px;
+            }
+
+        .btn-success {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+            .btn-success:hover {
+                background-color: #28a745;
+                transform: scale(1.05);
+            }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h4>Uye</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Ad)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Ad)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Soyad)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Soyad)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Adres)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Adres)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Resim)
+                    </dt>
+                    <dd class="col-sm-9">
+                        <img src="~/img/@Model.Resim" class="img-fluid" alt="User Image" />
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Acıklama)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Acıklama)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                </dl>
+            </div>
+            <div class="card-footer text-right">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success">Edit</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

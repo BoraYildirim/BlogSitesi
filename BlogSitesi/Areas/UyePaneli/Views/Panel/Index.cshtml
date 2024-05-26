@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSite</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .jumbotron {
+            background-image: url('https://source.unsplash.com/random');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            border-radius: 0;
+        }
+
+            .jumbotron h1 {
+                font-size: 64px; /* Yazı boyutunu arttır */
+                font-weight: bold; /* Yazıyı kalın yap */
+                margin-bottom: 30px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+
+            .jumbotron p {
+                font-size: 24px; /* Yazı boyutunu arttır */
+                font-weight: bold; /* Yazıyı kalın yap */
+                margin-bottom: 50px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+
+        .btn-primary {
+            background-color: #fd7e14;
+            border-color: #fd7e14;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-primary:hover {
+                background-color: #e76700;
+                border-color: #e76700;
+                transform: scale(1.05);
+            }
+    </style>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="display-3">Blog Sitemize Hoş geldiniz!</h1>
+        <p class="lead">Bu sitede üyelerimizin oluşturduğu yazıları okuyabilir, ilginizi çeken konuları takip edebilir ve kendi yazılarınızı oluşturabilirsiniz. Geçirdiğiniz zamandan keyif almanız dileğiyle.</p>
+        <p class="lead">- Admininiz Bora.</p>
+        <a asp-area="" asp-controller="Home" asp-action="Hakkimizda" class="btn btn-primary btn-lg">Hakkımızda</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

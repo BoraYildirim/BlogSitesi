@@ -1,0 +1,121 @@
+﻿@using BlogSitesi.Models.ViewModels
+@model Uye_VM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+
+        .card {
+            border-color: #fd7e14;
+        }
+
+        .card-header {
+            background-color: #fd7e14;
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: #fd7e14;
+            border-color: #fd7e14;
+        }
+
+        .btn-secondary {
+            background-color: #ffb07c;
+            border-color: #ffb07c;
+        }
+
+            .btn-primary:hover, .btn-secondary:hover {
+                background-color: #e76700;
+                border-color: #e76700;
+            }
+
+        .form-control:focus {
+            border-color: #fd7e14;
+            box-shadow: 0 0 0 0.2rem rgba(253, 126, 20, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Edit</h2>
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Uye</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Uye.Ad" class="control-label"></label>
+                        <input asp-for="Uye.Ad" class="form-control" />
+                        <span asp-validation-for="Uye.Ad" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Uye.Soyad" class="control-label"></label>
+                        <input asp-for="Uye.Soyad" class="form-control" />
+                        <span asp-validation-for="Uye.Soyad" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Uye.Adres" class="control-label"></label>
+                        <input asp-for="Uye.Adres" class="form-control" />
+                        <span asp-validation-for="Uye.Adres" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ResimYolu" class="control-label"></label>
+                        <input asp-for="ResimYolu" class="form-control-file" type="file" />
+                        <span asp-validation-for="ResimYolu" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Uye.Acıklama" class="control-label"></label>
+                        <input asp-for="Uye.Acıklama" class="form-control" />
+                        <span asp-validation-for="Uye.Acıklama" class="text-danger"></span>
+                    </div>
+
+                    <!-- Hidden fields -->
+                    <input type="hidden" asp-for="Uye.ConfirmCode" />
+                    <input type="hidden" asp-for="Uye.Id" />
+                    <input type="hidden" asp-for="Uye.UserName" />
+                    <input type="hidden" asp-for="Uye.NormalizedUserName" />
+                    <input type="hidden" asp-for="Uye.Email" />
+                    <input type="hidden" asp-for="Uye.NormalizedEmail" />
+                    <input type="hidden" asp-for="Uye.EmailConfirmed" />
+                    <input type="hidden" asp-for="Uye.PasswordHash" />
+                    <input type="hidden" asp-for="Uye.SecurityStamp" />
+                    <input type="hidden" asp-for="Uye.ConcurrencyStamp" />
+                    <input type="hidden" asp-for="Uye.PhoneNumber" />
+                    <input type="hidden" asp-for="Uye.PhoneNumberConfirmed" />
+                    <input type="hidden" asp-for="Uye.TwoFactorEnabled" />
+                    <input type="hidden" asp-for="Uye.LockoutEnd" />
+                    <input type="hidden" asp-for="Uye.LockoutEnabled" />
+                    <input type="hidden" asp-for="Uye.AccessFailedCount" />
+
+                    <div class="form-group text-right">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <a asp-action="Details" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="~/js/popper.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

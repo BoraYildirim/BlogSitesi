@@ -1,0 +1,130 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<Uye> UserManager
+@inject SignInManager<Uye> SignInManager
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BlogSitesi</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BlogSitesi.styles.css" asp-append-version="true" />
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700">
+    <link rel="stylesheet" href="~/css/styles-merged.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/style.min.css" asp-append-version="true">
+
+   
+</head>
+<body>
+   
+        <header>
+
+
+        <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar inline">
+            <div class="container-xxl position-relative p-0">
+
+                    <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <ul class="nav navbar-right ">
+                            @if (SignInManager.IsSignedIn(User))
+                        {
+                            @if (User.IsInRole("Uye"))
+                            {
+                                <li><a asp-area="UyePaneli" asp-controller="Panel" asp-action="Index">Anasayfa</a></li>
+                                <li><a asp-area="UyePaneli" asp-controller="Makale" asp-action="Index">Makale Oluştur</a></li>
+                                <li><a asp-area="UyePaneli" asp-controller="Makale" asp-action="IlgiliMakaleler">Sevebileceğin Makaleler</a></li>
+                                <li><a asp-area="UyePaneli" asp-controller="Konus" asp-action="Index">Konu Ekle</a></li>
+                                <li><a asp-area="UyePaneli" asp-controller="Konus" asp-action="AddUserTopics">Konu Takip Et</a></li>
+                            }
+                        }   
+                            
+                        <li><a asp-area="" asp-controller="home" asp-action="Hakkimizda">Hakkimizda</a></li>
+
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            @if (User.IsInRole("Yonetici"))
+                            {
+                                <a asp-area="YonetimPaneli" asp-controller="Menu" asp-action="Index" class="btn btn-primary py-2 px-4">Admin Paneline Git</a>
+                                <a asp-area="" asp-controller="Login" asp-action="LogOut" class="btn btn-primary py-2 px-4 mx-2">Çıkış Yap</a>
+                            }
+                            else
+                            {
+                                <a asp-area="UyePaneli" asp-controller="Panel" asp-action="Details" class="btn btn-primary py-2 px-4">Uye Ayarlarım</a>
+                                <a asp-area="" asp-controller="Login" asp-action="LogOut" class="btn btn-primary py-2 px-4 mx-2">Çıkış Yap</a>
+                            }
+                        }
+                        else
+                        {
+                            <a asp-controller="Login" asp-action="Login" class="btn btn-primary py-2 px-4">Giriş Yap</a>
+                            <a asp-controller="Login" asp-action="Register" class="btn btn-primary py-2 px-4 mx-2">Kaydol</a>
+
+                        }
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="flexslider">
+                <ul class="slides">
+                <li style="background-image: url(https://source.unsplash.com/random)" class="overlay">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="probootstrap-slider-text text-center">
+                                        <h1 class="probootstrap-heading">Zamanı Yakala...</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <li style="background-image: url(https://source.unsplash.com/random)" class="overlay">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="probootstrap-slider-text text-center">
+                                        <h1 class="probootstrap-heading">Sanatı Keşfet...</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                <li style="background-image: url(https://source.unsplash.com/random)" class="overlay">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="probootstrap-slider-text text-center">
+                                        <h1 class="probootstrap-heading">Ritme Kulak ver...</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+           
+        </header>
+       @RenderBody();
+        <footer>
+
+
+        </footer>
+  
+    
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/scripts.min.js" asp-append-version="true"></script>
+    <script src="~/js/custom.min.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

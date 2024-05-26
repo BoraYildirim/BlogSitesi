@@ -1,0 +1,175 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<Uye> UserManager
+@inject SignInManager<Uye> SignInManager
+
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Example Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .custom-body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .custom-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .custom-heading {
+            font-size: 36px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .custom-paragraph {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .custom-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+
+            .custom-button:hover {
+                background-color: #0056b3;
+            }
+
+        .custom-social-icons {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+            .custom-social-icons a {
+                color: #007bff;
+                font-size: 24px;
+                margin: 0 10px;
+                transition: color 0.3s ease;
+            }
+
+                .custom-social-icons a:hover {
+                    color: #0056b3;
+                }
+
+        .custom-images {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+            .custom-images img {
+                max-width: 100%;
+                height: auto;
+                margin: 10px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease;
+            }
+
+                .custom-images img:hover {
+                    transform: scale(1.05);
+                }
+    </style>
+</head>
+<body class="custom-body">
+
+    <div class="custom-container">
+        <h1 class="custom-heading">Hoş Geldiniz!</h1>
+        <p class="custom-paragraph">Blog adımızda sizi ağırlamaktan mutluluk duyuyoruz! Burası, bilgiye aç olanların buluşma noktası. Birçok farklı konuda derinlemesine yazılar, ilham verici hikayeler ve güncel haberlerle dolu bir dünya sunuyoruz. Amacımız, okuyucularımıza yeni bilgiler öğretmek, onları eğlendirmek ve günlük yaşamlarına değer katmak.</p>
+        
+        <h1 class="custom-heading">Ne Bulabilirsiniz?</h1>
+        <p class="custom-paragraph">Blogumuzda geniş bir konu yelpazesi bulabilirsiniz. Teknoloji, seyahat, sağlık, kişisel gelişim, kültür, sanat ve daha fazlası hakkında yazılmış makalelerle dolu bir arşivimiz var. Hem uzman yazarlarımızın derinlemesine analizleriyle hem de okuyucularımızın deneyimlerini paylaştığı kişisel hikayelerle bilgi dolu bir yolculuğa çıkacaksınız.</p>
+
+
+        <h1 class="custom-heading">Topluluğa Katılın!</h1>
+        <p class="custom-paragraph">Siz de bu heyecan verici topluluğun bir parçası olun! Blogumuzda yorumlar bölümünde düşüncelerinizi paylaşın, diğer okuyucularla etkileşimde bulunun ve deneyimlerinizi paylaşın. Ayrıca, bizi sosyal medyada takip ederek en güncel içeriklerimizden haberdar olabilir ve topluluğumuzun bir parçası olabilirsiniz.</p>
+
+        <h1 class="custom-heading">Biz Kimiz?</h1>
+        <p class="custom-paragraph">Biz, tutkulu yazarlar ve bilgiye aç olanlarla dolu bir ekipiz. Amacımız, bilgiyi paylaşarak birbirimize ve okuyucularımıza değer katmak. Blogumuzda her gün yeni içeriklerle sizi buluşturuyor ve sizi daha iyi bir dünya için bilgilenmeye davet ediyoruz.</p>
+        
+         @if (!SignInManager.IsSignedIn(User))
+        {
+            <a asp-controller="Login" asp-action="Register" class="custom-button">Bize Katıl</a>
+        }
+
+        <div class="custom-social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+
+    <section class="probootstrap-section probootstrap-border-top probootstrap-bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
+                    <h2>Testimonial</h2>
+                </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-carousel-fullwidth">
+                        <div class="item">
+
+                            <div class="probootstrap-testimony-wrap text-center">
+                                <figure>
+                                    <img src="../img/person_1.jpg" alt="Free Bootstrap Template by uicookies.com">
+                                </figure>
+                                <blockquote class="quote">&ldquo;Tasarım işlevsel olmalı ve işlevsellik görsel estetiklere dönüştürülmelidir, açıklanması gereken hilelere başvurulmamalıdır..&rdquo; <cite class="author">&mdash; Ferdinand A. Porsche <br> <span>Design Lead at AirBNB</span></cite></blockquote>
+                            </div>
+
+                        </div>
+                        <div class="item">
+                            <div class="probootstrap-testimony-wrap text-center">
+                                <figure>
+                                    <img src="../img/person_2.jpg" alt="Free Bootstrap Template by uicookies.com">
+                                </figure>
+                                <blockquote class="quote">&ldquo;Yaratıcılık, şeyleri birleştirmekten ibarettir. Yaratıcı insanlara bir şeyi nasıl yaptıklarını sorduğunuzda, biraz suçluluk duyarlar çünkü aslında onu yapmadılar, sadece bir şey gördüler. Bir süre sonra ise onlar için her şey açıkça göründü..&rdquo; <cite class="author">&mdash; Steve Jobs <br> <span>Co-Founder Square</span></cite></blockquote>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="probootstrap-testimony-wrap text-center">
+                                <figure>
+                                    <img src="../img/person_3.jpg" alt="Free Bootstrap Template by uicookies.com">
+                                </figure>
+                                <blockquote class="quote">&ldquo;Tasarımın uygulanışı konusunda tasarımcıların çok daha şüpheci olmaları durumunda, tasarımın daha iyi olacağını düşünüyorum. El sanatlarınızın gücüne inanıyorsanız, onu nerede kullanacağınıza dair kararınızı hafife almamalısınız.&rdquo; <cite class="author">&mdash; Frank Chimero <br> <span>Creative Director at Twitter</span></cite></blockquote>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+
+</body>
+</html>l>

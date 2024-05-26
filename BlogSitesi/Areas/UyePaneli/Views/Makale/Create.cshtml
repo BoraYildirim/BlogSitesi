@@ -1,0 +1,72 @@
+﻿@using BlogSitesi.Models.ViewModels
+@model MakaleVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2 class="text-primary text-center mt-4">Create</h2>
+
+<h4 class="text-secondary text-center">Makale</h4>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <form asp-action="Create" class="p-4 border rounded shadow-sm bg-white">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+            <div class="form-group">
+                <label asp-for="MakaleEkle.Baslık" class="control-label font-weight-bold">
+                    <i class="fas fa-heading mr-2"></i>Başlık
+                </label>
+                <input asp-for="MakaleEkle.Baslık" class="form-control" placeholder="Makale başlığını girin..." />
+                <span asp-validation-for="MakaleEkle.Baslık" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MakaleEkle.Metin" class="control-label font-weight-bold">
+                    <i class="fas fa-align-left mr-2"></i>Metin
+                </label>
+                <textarea asp-for="MakaleEkle.Metin" class="form-control" rows="5" placeholder="Makale metnini girin..."></textarea>
+                <span asp-validation-for="MakaleEkle.Metin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MakaleEkle.OrtalamaSure" class="control-label font-weight-bold">
+                    <i class="fas fa-clock mr-2"></i>Ortalama Süre
+                </label>
+                <input asp-for="MakaleEkle.OrtalamaSure" class="form-control" placeholder="Okuma süresi (dakika)" />
+                <span asp-validation-for="MakaleEkle.OrtalamaSure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MakaleEkle.KonuID" class="control-label font-weight-bold">
+                    <i class="fas fa-book mr-2"></i>Konu
+                </label>
+                <select asp-for="MakaleEkle.KonuID" class="form-control">
+                    <option value="">Konu seçin...</option>
+                    @foreach (var konu in Model.Konu)
+                    {
+                        <option value="@konu.Value">@konu.Text</option>
+                    }
+                </select>
+                <span asp-validation-for="MakaleEkle.KonuID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Makale.OkunmaSayisi" class="control-label font-weight-bold">
+                    <i class="fas fa-eye mr-2"></i>Okunma Sayısı
+                </label>
+                <input asp-for="Makale.OkunmaSayisi" class="form-control" placeholder="Tahmini okunma sayısı" />
+                <span asp-validation-for="Makale.OkunmaSayisi" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Create" class="btn btn-primary btn-lg btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-3 text-center">
+    <a asp-action="Index" class="btn btn-secondary btn-sm">
+        <i class="fas fa-arrow-left mr-2"></i>Back to List
+    </a>
+</div>
+
+@section Scripts {
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+}

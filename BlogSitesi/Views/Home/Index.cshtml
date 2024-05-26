@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ziyaretçi Anasayfası</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .info-section h2 {
+            font-size: 32px;
+            color: #000;
+            margin-bottom: 20px; 
+            text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 70px rgba(255, 255, 255, 1), 0 0 100px rgba(255, 255, 255, 1);
+        }
+
+        .info-section p {
+            font-size: 18px;
+            color: #000; 
+            line-height: 1.6; 
+            margin-bottom: 30px; 
+            text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 70px rgba(255, 255, 255, 1), 0 0 100px rgba(255, 255, 255, 1);
+        }
+
+        .info-section a.btn {
+            font-size: 20px;
+            padding: 12px 30px;
+            background-color: wheat; 
+            border-color: indigo; 
+            color: darkgreen; 
+            transition: all 0.3s ease-in-out; 
+        }
+
+            .info-section a.btn:hover {
+                background-color: plum;
+                border-color: orange; 
+            }
+        .hero-section {
+            position: relative;
+            height: 600px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/random') no-repeat center center;
+            background-size: cover;
+            filter: blur(10px); /* Arka plan resmini blur yapma */
+            z-index: -1; /* Arka plan resmini metnin altına yerleştirme */
+        }
+
+            .hero-section h1 {
+                font-size: 4rem;
+            }
+
+            .hero-section p {
+                font-size: 1.5rem;
+            }
+
+        .info-section {
+            padding: 50px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero-section hero-background">
+        <div>
+            <h1 style="color:turquoise">Hoşgeldiniz!</h1>
+            <br />
+            <br />
+            <br />
+            <br />
+            <h2 style="color:aliceblue"><b>"Yaratıcılığınızı konuşturabileceğiniz, fikirlerinizi özgürce paylaşabileceğiniz bir platforma hoş geldiniz!<br /> Üye olarak, geniş bir toplulukla etkileşimde bulunabilir, kendi blog yazılarınızı yayınlayarak sesinizi duyurabilirsiniz.<br /> İlham verici içeriklerin ve tutkulu yazarların buluşma noktası burada.<br /> Siz de bu heyecan verici dünyaya adım atın ve topluluğumuzun parçası olun!"</b></h2>
+            <a href="#info" class="btn btn-primary btn-lg">Daha Fazla Bilgi</a>
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <div id="info" class="info-section container text-center">
+        <h2>Site Hakkında</h2>
+        <p>Bu site, kullanıcıların çeşitli konularda blog yazıları yazabileceği ve paylaşabileceği bir platform sunar. Üye olarak siz de yazılarınızı paylaşabilir ve topluluğumuzun bir parçası olabilirsiniz.</p>
+        <a asp-controller="Home" asp-action="Hakkimizda" class="btn btn-info btn-lg">Hakkımızda</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

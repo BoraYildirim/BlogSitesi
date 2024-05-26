@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BlogSitesi.Models.Konu>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .table-container {
+        margin-top: 20px;
+    }
+
+    .table-container table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    .table-container th, .table-container td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table-container th {
+        background-color: #f2f2f2;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+    }
+
+    .table-container tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .table-container tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .fade-in {
+        animation: fadeIn ease 1s;
+    }
+   
+</style>
+
+<h2 class="text-center mb-4">Konu Listesi</h2>
+
+<div class="container table-container">
+    <div class="row">
+        <div class="col">
+            <a asp-action="Create" class="btn btn-success mb-3">Yeni Konu Ekle</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped fade-in">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Konu Başlığı</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.KonuBaslik)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<BlogSitesi.Models.Konu>
+
+@{
+    ViewData["Title"] = "Add User Topics";
+}
+
+<h2>Add User Topics</h2>
+
+<form method="post" asp-action="AddUserTopics">
+    <div class="form-group">
+        <label for="topics">Select Topics:</label>
+        <select multiple class="form-control" id="topics" name="selectedTopics">
+            @foreach (var topic in Model)
+            {
+                <option value="@topic.KonuID">@topic.KonuBaslik</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Topics</button>
+</form>
